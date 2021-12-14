@@ -46,6 +46,5 @@ def lambda_handler(event, context):
         role_arn = 'arn:aws:iam::%s:role/%s' % (item['owner_id'], arn_role_name)
         friendly_name = friendly_name_prefix + " - " + str(item['owner_id'])
         print('\n',"--------------------------", '\n', 'Owner ID: ', item['owner_id'], ', CH Account ID: ', item['id'], ', Friendly Name: ', friendly_name)
-        
-        #update_account(api_key, item['id'], friendly_name, role_arn, external_id)
+        update_account(api_key, item['id'], friendly_name, role_arn, external_id)
     return event
