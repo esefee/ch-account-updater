@@ -2,8 +2,6 @@ import os
 import http.client
 import json
 
-#to do: flexibility around role ARN naming convention
-
 api_key = os.environ.get('api_key')
 external_id = os.environ.get('external_id')
 friendly_name_prefix = os.environ.get('friendly_name_prefix')
