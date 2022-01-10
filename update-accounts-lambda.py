@@ -5,7 +5,7 @@ import json
 api_key = os.environ.get('api_key')
 external_id = os.environ.get('external_id')
 friendly_name_prefix = os.environ.get('friendly_name_prefix')
-arn_role_name = os.environ.get('arn_role_name')
+arn_role_name = "CloudHealth-Access"
 
 def lambda_handler(event, context):
     def get_unconfigured_accounts(api_key):
