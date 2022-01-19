@@ -10,7 +10,7 @@ arn_role_name = "CloudHealth-Access"
 def lambda_handler(event, context):
     def get_unconfigured_accounts(api_key):
         base_url = 'chapi.cloudhealthtech.com'
-        query = '/api/search.json?api_version=2&name=AwsAccount&querystatus=\'Not-Configured\'&fields=owner_id'
+        query = '/api/search.json?api_version=2&name=AwsAccount&query=status=\'Not-Configured\'&fields=owner_id'
         headers = {'Content-type': 'application/json', 'Authorization': 'Bearer %s' % api_key} 
         connection = http.client.HTTPSConnection(base_url)
         connection.request('GET', query, headers = headers)
