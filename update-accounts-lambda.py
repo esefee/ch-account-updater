@@ -67,10 +67,10 @@ def lambda_handler(event, context):
                 }
             }
         body = json.dumps(account_info)
-        print(body)
         connection = http.client.HTTPSConnection(base_url)
         connection.request('PUT', url = query, body = body, headers = headers)
         response =  connection.getresponse()
+        print(json.loads(response.read().decode()))
         connection.close()
         return response
     
@@ -82,7 +82,10 @@ def lambda_handler(event, context):
         print('Owner ID: ', item['owner_id'], ', CH Account ID: ', item['id'], ', Friendly Name: ', friendly_name)
         if is_customer == True:
             update_account(api_key, item['id'], friendly_name, role_arn, external_id, client_api_id)
+            continue
         else:
             update_account(api_key, item['id'], friendly_name, role_arn, external_id)
+            continue
+            
     print('\n',"--------------------------", '\n')
     return event
